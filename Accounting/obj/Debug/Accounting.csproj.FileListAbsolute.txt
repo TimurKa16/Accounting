@@ -1,0 +1,12 @@
+C:\Users\USER\source\repos\Accounting\Accounting\Accounting\bin\Debug\AccountingDB.mdf
+C:\Users\USER\source\repos\Accounting\Accounting\Accounting\bin\Debug\AccountingDB_log.ldf
+C:\Users\USER\source\repos\Accounting\Accounting\Accounting\bin\Debug\Accounting.exe.config
+C:\Users\USER\source\repos\Accounting\Accounting\Accounting\bin\Debug\Accounting.exe
+C:\Users\USER\source\repos\Accounting\Accounting\Accounting\bin\Debug\Accounting.pdb
+C:\Users\USER\source\repos\Accounting\Accounting\Accounting\obj\Debug\Accounting.csproj.AssemblyReference.cache
+C:\Users\USER\source\repos\Accounting\Accounting\Accounting\obj\Debug\Accounting.Form1.resources
+C:\Users\USER\source\repos\Accounting\Accounting\Accounting\obj\Debug\Accounting.Properties.Resources.resources
+C:\Users\USER\source\repos\Accounting\Accounting\Accounting\obj\Debug\Accounting.csproj.GenerateResource.cache
+C:\Users\USER\source\repos\Accounting\Accounting\Accounting\obj\Debug\Accounting.csproj.CoreCompileInputs.cache
+C:\Users\USER\source\repos\Accounting\Accounting\Accounting\obj\Debug\Accounting.exe
+C:\Users\USER\source\repos\Accounting\Accounting\Accounting\obj\Debug\Accounting.pdb
