@@ -8,7 +8,7 @@
     <OutputType>WinExe</OutputType>
     <RootNamespace>Accounting</RootNamespace>
     <AssemblyName>Accounting</AssemblyName>
-    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
@@ -27,6 +27,7 @@
     <IsWebBootstrapper>false</IsWebBootstrapper>
     <UseApplicationTrust>false</UseApplicationTrust>
     <BootstrapperEnabled>true</BootstrapperEnabled>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -48,7 +49,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="System" />
+    <Reference Include="System">
+      <HintPath>..\..\..\..\..\..\..\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.7.2\System.dll</HintPath>
+    </Reference>
     <Reference Include="System.Core" />
     <Reference Include="System.Data.Linq" />
     <Reference Include="System.Xml.Linq" />
@@ -62,24 +65,71 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Entities\MonthlyPayment.cs" />
+    <Compile Include="Entities\Transaction.cs" />
     <Compile Include="LinqToSql.designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>LinqToSql.dbml</DependentUpon>
     </Compile>
-    <Compile Include="Presentation.cs">
+    <Compile Include="Layers\Presentation\Main\PresentationForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Presentation.Designer.cs">
-      <DependentUpon>Presentation.cs</DependentUpon>
+    <Compile Include="Layers\Presentation\Main\PresentationForm.Designer.cs">
+      <DependentUpon>PresentationForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Logic.cs" />
+    <Compile Include="Layers\Logic.cs" />
+    <Compile Include="Layers\Presentation\MonthlyPaymentForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Layers\Presentation\MonthlyPaymentForm.Designer.cs">
+      <DependentUpon>MonthlyPaymentForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Layers\Presentation\Main\PresentationBeautifier.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Layers\Presentation\LoadingForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Layers\Presentation\LoadingForm.Designer.cs">
+      <DependentUpon>LoadingForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Storage.cs" />
-    <Compile Include="Transaction.cs" />
-    <EmbeddedResource Include="Presentation.resx">
-      <DependentUpon>Presentation.cs</DependentUpon>
+    <Compile Include="Entities\Debt.cs" />
+    <Compile Include="Layers\Storage.cs" />
+    <Compile Include="Layers\Presentation\TransactionForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Layers\Presentation\TransactionForm.Designer.cs">
+      <DependentUpon>TransactionForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Layers\Presentation\Main\SetHook.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Layers\Presentation\Main\TestForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Layers\Presentation\Main\TestForm.Designer.cs">
+      <DependentUpon>TestForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Layers\Presentation\Main\ShowDebt.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Layers\Presentation\Main\ShowHistory.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Layers\Presentation\Main\ShowMonthlyPayment.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <EmbeddedResource Include="Layers\Presentation\LoadingForm.resx">
+      <DependentUpon>LoadingForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Layers\Presentation\MonthlyPaymentForm.resx">
+      <DependentUpon>MonthlyPaymentForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Layers\Presentation\Main\PresentationForm.resx">
+      <DependentUpon>PresentationForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -89,7 +139,14 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="Layers\Presentation\TransactionForm.resx">
+      <DependentUpon>TransactionForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Layers\Presentation\Main\TestForm.resx">
+      <DependentUpon>TestForm.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="LinqToSql.dbml">
       <Generator>MSLinqToSQLGenerator</Generator>
       <LastGenOutput>LinqToSql.designer.cs</LastGenOutput>
@@ -134,6 +191,9 @@
       <ProductName>.NET Framework 3.5 SP1</ProductName>
       <Install>false</Install>
     </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

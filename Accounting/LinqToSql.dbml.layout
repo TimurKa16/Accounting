@@ -2,10 +2,16 @@
 <ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11, 8.5" name="LinqToSql">
   <DataContextMoniker Name="/LinqToSqlDataContext" />
   <nestedChildShapes>
-    <classShape Id="c11ef515-29ad-462d-ac70-d287447d1d05" absoluteBounds="4.125, 1.25, 2, 1.9631982421875">
+    <classShape Id="b73c24fe-cad6-4c63-a96c-fa5932c79461" absoluteBounds="4.75, 1.5, 2, 1.9631982421875">
       <DataClassMoniker Name="/LinqToSqlDataContext/TransactionsTable" />
       <nestedChildShapes>
-        <elementListCompartment Id="a4f268b1-cb4f-4ff3-89ee-3a32df5ccc07" absoluteBounds="4.14, 1.71, 1.9700000000000002, 1.4031982421875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+        <elementListCompartment Id="2231d728-bc87-48cc-854f-9463fd79f707" absoluteBounds="4.765, 1.96, 1.9700000000000002, 1.4031982421875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="db373c48-0a01-4118-bd09-a666dd9ec439" absoluteBounds="2.375, 1.625, 2, 2.3478011067708335">
+      <DataClassMoniker Name="/LinqToSqlDataContext/MonthlyPaymentTable" />
+      <nestedChildShapes>
+        <elementListCompartment Id="8dd3ab63-0d2e-42d2-8c08-34979b341ddc" absoluteBounds="2.39, 2.085, 1.9700000000000002, 1.7878011067708335" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
   </nestedChildShapes>

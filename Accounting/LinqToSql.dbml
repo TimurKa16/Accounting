@@ -1,13 +1,25 @@
 ﻿<?xml version="1.0" encoding="utf-8"?><Database Name="AccountingDB" Class="LinqToSqlDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
-  <Connection Mode="AppSettings" ConnectionString="Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\AccountingDB.mdf;Integrated Security=True" SettingsObjectName="Accounting.Properties.Settings" SettingsPropertyName="TransactionsConnectionString" Provider="System.Data.SqlClient" />
+  <Connection Mode="AppSettings" ConnectionString="Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\AccountingDB.mdf;Integrated Security=True" SettingsObjectName="Accounting.Properties.Settings" SettingsPropertyName="AccountingDBConnectionString" Provider="System.Data.SqlClient" />
   <Table Name="dbo.TransactionsTable" Member="TransactionsTable">
     <Type Name="TransactionsTable">
-      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
-      <Column Name="[From]" Member="From" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Column Name="[To]" Member="To" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Column Name="Amount" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="Description" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
-      <Column Name="Date" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="T_Id" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="T_From" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="T_To" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="T_Amount" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="T_Description" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="T_Date" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.MonthlyPaymentTable" Member="MonthlyPaymentTable">
+    <Type Name="MonthlyPaymentTable">
+      <Column Name="M_Id" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="M_From" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="M_To" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="M_Amount" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="M_Date" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="M_LastDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="M_Description" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="M_Status" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
     </Type>
   </Table>
 </Database>

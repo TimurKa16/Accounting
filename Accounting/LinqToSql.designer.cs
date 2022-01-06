@@ -33,10 +33,13 @@ namespace Accounting
     partial void InsertTransactionsTable(TransactionsTable instance);
     partial void UpdateTransactionsTable(TransactionsTable instance);
     partial void DeleteTransactionsTable(TransactionsTable instance);
+    partial void InsertMonthlyPaymentTable(MonthlyPaymentTable instance);
+    partial void UpdateMonthlyPaymentTable(MonthlyPaymentTable instance);
+    partial void DeleteMonthlyPaymentTable(MonthlyPaymentTable instance);
     #endregion
 		
 		public LinqToSqlDataContext() : 
-				base(global::Accounting.Properties.Settings.Default.TransactionsConnectionString, mappingSource)
+				base(global::Accounting.Properties.Settings.Default.AccountingDBConnectionString, mappingSource)
 		{
 			OnCreated();
 		}
@@ -72,6 +75,14 @@ namespace Accounting
 				return this.GetTable<TransactionsTable>();
 			}
 		}
+		
+		public System.Data.Linq.Table<MonthlyPaymentTable> MonthlyPaymentTable
+		{
+			get
+			{
+				return this.GetTable<MonthlyPaymentTable>();
+			}
+		}
 	}
 	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.TransactionsTable")]
@@ -80,34 +91,34 @@ namespace Accounting
 		
 		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
 		
-		private int _Id;
+		private int _T_Id;
 		
-		private string _From;
+		private string _T_From;
 		
-		private string _To;
+		private string _T_To;
 		
-		private System.Nullable<int> _Amount;
+		private System.Nullable<int> _T_Amount;
 		
-		private string _Description;
+		private string _T_Description;
 		
-		private string _Date;
+		private System.Nullable<System.DateTime> _T_Date;
 		
     #region Определения метода расширяемости
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
     partial void OnCreated();
-    partial void OnIdChanging(int value);
-    partial void OnIdChanged();
-    partial void OnFromChanging(string value);
-    partial void OnFromChanged();
-    partial void OnToChanging(string value);
-    partial void OnToChanged();
-    partial void OnAmountChanging(System.Nullable<int> value);
-    partial void OnAmountChanged();
-    partial void OnDescriptionChanging(string value);
-    partial void OnDescriptionChanged();
-    partial void OnDateChanging(string value);
-    partial void OnDateChanged();
+    partial void OnT_IdChanging(int value);
+    partial void OnT_IdChanged();
+    partial void OnT_FromChanging(string value);
+    partial void OnT_FromChanged();
+    partial void OnT_ToChanging(string value);
+    partial void OnT_ToChanged();
+    partial void OnT_AmountChanging(System.Nullable<int> value);
+    partial void OnT_AmountChanged();
+    partial void OnT_DescriptionChanging(string value);
+    partial void OnT_DescriptionChanged();
+    partial void OnT_DateChanging(System.Nullable<System.DateTime> value);
+    partial void OnT_DateChanged();
     #endregion
 		
 		public TransactionsTable()
@@ -115,122 +126,352 @@ namespace Accounting
 			OnCreated();
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Id", DbType="Int NOT NULL", IsPrimaryKey=true)]
-		public int Id
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_T_Id", DbType="Int NOT NULL", IsPrimaryKey=true)]
+		public int T_Id
 		{
 			get
 			{
-				return this._Id;
+				return this._T_Id;
 			}
 			set
 			{
-				if ((this._Id != value))
+				if ((this._T_Id != value))
 				{
-					this.OnIdChanging(value);
+					this.OnT_IdChanging(value);
 					this.SendPropertyChanging();
-					this._Id = value;
-					this.SendPropertyChanged("Id");
-					this.OnIdChanged();
+					this._T_Id = value;
+					this.SendPropertyChanged("T_Id");
+					this.OnT_IdChanged();
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[From]", Storage="_From", DbType="NVarChar(50)")]
-		public string From
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_T_From", DbType="NVarChar(50)")]
+		public string T_From
 		{
 			get
 			{
-				return this._From;
+				return this._T_From;
 			}
 			set
 			{
-				if ((this._From != value))
+				if ((this._T_From != value))
 				{
-					this.OnFromChanging(value);
+					this.OnT_FromChanging(value);
 					this.SendPropertyChanging();
-					this._From = value;
-					this.SendPropertyChanged("From");
-					this.OnFromChanged();
+					this._T_From = value;
+					this.SendPropertyChanged("T_From");
+					this.OnT_FromChanged();
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[To]", Storage="_To", DbType="NVarChar(50)")]
-		public string To
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_T_To", DbType="NVarChar(50)")]
+		public string T_To
 		{
 			get
 			{
-				return this._To;
+				return this._T_To;
 			}
 			set
 			{
-				if ((this._To != value))
+				if ((this._T_To != value))
 				{
-					this.OnToChanging(value);
+					this.OnT_ToChanging(value);
 					this.SendPropertyChanging();
-					this._To = value;
-					this.SendPropertyChanged("To");
-					this.OnToChanged();
+					this._T_To = value;
+					this.SendPropertyChanged("T_To");
+					this.OnT_ToChanged();
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Amount", DbType="Int")]
-		public System.Nullable<int> Amount
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_T_Amount", DbType="Int")]
+		public System.Nullable<int> T_Amount
 		{
 			get
 			{
-				return this._Amount;
+				return this._T_Amount;
 			}
 			set
 			{
-				if ((this._Amount != value))
+				if ((this._T_Amount != value))
 				{
-					this.OnAmountChanging(value);
+					this.OnT_AmountChanging(value);
 					this.SendPropertyChanging();
-					this._Amount = value;
-					this.SendPropertyChanged("Amount");
-					this.OnAmountChanged();
+					this._T_Amount = value;
+					this.SendPropertyChanged("T_Amount");
+					this.OnT_AmountChanged();
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Description", DbType="NVarChar(MAX)")]
-		public string Description
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_T_Description", DbType="NVarChar(MAX)")]
+		public string T_Description
 		{
 			get
 			{
-				return this._Description;
+				return this._T_Description;
 			}
 			set
 			{
-				if ((this._Description != value))
+				if ((this._T_Description != value))
 				{
-					this.OnDescriptionChanging(value);
+					this.OnT_DescriptionChanging(value);
 					this.SendPropertyChanging();
-					this._Description = value;
-					this.SendPropertyChanged("Description");
-					this.OnDescriptionChanged();
+					this._T_Description = value;
+					this.SendPropertyChanged("T_Description");
+					this.OnT_DescriptionChanged();
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Date", DbType="NVarChar(50)")]
-		public string Date
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_T_Date", DbType="DateTime")]
+		public System.Nullable<System.DateTime> T_Date
 		{
 			get
 			{
-				return this._Date;
+				return this._T_Date;
 			}
 			set
 			{
-				if ((this._Date != value))
+				if ((this._T_Date != value))
 				{
-					this.OnDateChanging(value);
+					this.OnT_DateChanging(value);
 					this.SendPropertyChanging();
-					this._Date = value;
-					this.SendPropertyChanged("Date");
-					this.OnDateChanged();
+					this._T_Date = value;
+					this.SendPropertyChanged("T_Date");
+					this.OnT_DateChanged();
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.MonthlyPaymentTable")]
+	public partial class MonthlyPaymentTable : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _M_Id;
+		
+		private string _M_From;
+		
+		private string _M_To;
+		
+		private System.Nullable<int> _M_Amount;
+		
+		private System.Nullable<int> _M_Date;
+		
+		private System.Nullable<System.DateTime> _M_LastDate;
+		
+		private string _M_Description;
+		
+		private string _M_Status;
+		
+    #region Определения метода расширяемости
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnM_IdChanging(int value);
+    partial void OnM_IdChanged();
+    partial void OnM_FromChanging(string value);
+    partial void OnM_FromChanged();
+    partial void OnM_ToChanging(string value);
+    partial void OnM_ToChanged();
+    partial void OnM_AmountChanging(System.Nullable<int> value);
+    partial void OnM_AmountChanged();
+    partial void OnM_DateChanging(System.Nullable<int> value);
+    partial void OnM_DateChanged();
+    partial void OnM_LastDateChanging(System.Nullable<System.DateTime> value);
+    partial void OnM_LastDateChanged();
+    partial void OnM_DescriptionChanging(string value);
+    partial void OnM_DescriptionChanged();
+    partial void OnM_StatusChanging(string value);
+    partial void OnM_StatusChanged();
+    #endregion
+		
+		public MonthlyPaymentTable()
+		{
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_M_Id", DbType="Int NOT NULL", IsPrimaryKey=true)]
+		public int M_Id
+		{
+			get
+			{
+				return this._M_Id;
+			}
+			set
+			{
+				if ((this._M_Id != value))
+				{
+					this.OnM_IdChanging(value);
+					this.SendPropertyChanging();
+					this._M_Id = value;
+					this.SendPropertyChanged("M_Id");
+					this.OnM_IdChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_M_From", DbType="NVarChar(50)")]
+		public string M_From
+		{
+			get
+			{
+				return this._M_From;
+			}
+			set
+			{
+				if ((this._M_From != value))
+				{
+					this.OnM_FromChanging(value);
+					this.SendPropertyChanging();
+					this._M_From = value;
+					this.SendPropertyChanged("M_From");
+					this.OnM_FromChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_M_To", DbType="NVarChar(50)")]
+		public string M_To
+		{
+			get
+			{
+				return this._M_To;
+			}
+			set
+			{
+				if ((this._M_To != value))
+				{
+					this.OnM_ToChanging(value);
+					this.SendPropertyChanging();
+					this._M_To = value;
+					this.SendPropertyChanged("M_To");
+					this.OnM_ToChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_M_Amount", DbType="Int")]
+		public System.Nullable<int> M_Amount
+		{
+			get
+			{
+				return this._M_Amount;
+			}
+			set
+			{
+				if ((this._M_Amount != value))
+				{
+					this.OnM_AmountChanging(value);
+					this.SendPropertyChanging();
+					this._M_Amount = value;
+					this.SendPropertyChanged("M_Amount");
+					this.OnM_AmountChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_M_Date", DbType="Int")]
+		public System.Nullable<int> M_Date
+		{
+			get
+			{
+				return this._M_Date;
+			}
+			set
+			{
+				if ((this._M_Date != value))
+				{
+					this.OnM_DateChanging(value);
+					this.SendPropertyChanging();
+					this._M_Date = value;
+					this.SendPropertyChanged("M_Date");
+					this.OnM_DateChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_M_LastDate", DbType="DateTime")]
+		public System.Nullable<System.DateTime> M_LastDate
+		{
+			get
+			{
+				return this._M_LastDate;
+			}
+			set
+			{
+				if ((this._M_LastDate != value))
+				{
+					this.OnM_LastDateChanging(value);
+					this.SendPropertyChanging();
+					this._M_LastDate = value;
+					this.SendPropertyChanged("M_LastDate");
+					this.OnM_LastDateChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_M_Description", DbType="NVarChar(50)")]
+		public string M_Description
+		{
+			get
+			{
+				return this._M_Description;
+			}
+			set
+			{
+				if ((this._M_Description != value))
+				{
+					this.OnM_DescriptionChanging(value);
+					this.SendPropertyChanging();
+					this._M_Description = value;
+					this.SendPropertyChanged("M_Description");
+					this.OnM_DescriptionChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_M_Status", DbType="NVarChar(50)")]
+		public string M_Status
+		{
+			get
+			{
+				return this._M_Status;
+			}
+			set
+			{
+				if ((this._M_Status != value))
+				{
+					this.OnM_StatusChanging(value);
+					this.SendPropertyChanging();
+					this._M_Status = value;
+					this.SendPropertyChanged("M_Status");
+					this.OnM_StatusChanged();
 				}
 			}
 		}
